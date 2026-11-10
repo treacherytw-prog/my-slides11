@@ -1,0 +1,586 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アンガーマネジメント研修｜1月フォローアップ</title>
+<style>
+  :root{
+    --navy:#1C2E4A; --navy-deep:#13203a; --teal:#2E7D6B; --teal-soft:#e7f1ee;
+    --amber:#B5701B; --amber-soft:#fbf0e1; --paper:#F5F7FA; --card:#ffffff;
+    --line:#E3E8EF; --ink:#212a38; --muted:#5B6675;
+    --shadow:0 1px 2px rgba(20,32,58,.06),0 6px 22px rgba(20,32,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Yu Gothic","Noto Sans JP",Meiryo,sans-serif;
+    line-height:1.75; -webkit-font-smoothing:antialiased; font-size:16px;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px}
+
+  /* ---- top nav: plain, clear, solid (no faint text) ---- */
+  header.bar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 6px rgba(20,32,58,.05)}
+  .bar .wrap{padding-top:8px;padding-bottom:8px}
+  .brand{font-weight:800;color:var(--navy);font-size:13px;letter-spacing:.02em;margin-bottom:7px}
+  nav.tabs{display:flex;gap:7px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+  nav.tabs a{
+    flex:0 0 auto;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;
+    padding:9px 14px;border-radius:9px;border:1.5px solid var(--line);background:#fff;white-space:nowrap;
+  }
+  nav.tabs a:hover,nav.tabs a:active{background:var(--navy);border-color:var(--navy);color:#fff}
+  nav.tabs a.lead{background:var(--navy);border-color:var(--navy);color:#fff}
+
+  /* ---- hero ---- */
+  .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;padding:38px 0 42px;position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(46,125,107,.25);filter:blur(8px)}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#9db4d6;font-weight:700;margin:0 0 10px}
+  .hero h1{margin:0;font-size:25px;line-height:1.45;font-weight:800;letter-spacing:.01em}
+  .hero p.lead{margin:14px 0 0;color:#d7e1f1;font-size:15px;max-width:34em}
+  .hero .pill{display:inline-block;margin-top:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#eaf1fb;font-size:12.5px;padding:5px 12px;border-radius:999px}
+
+  /* ---- sections ---- */
+  section{padding:36px 0}
+  .badge{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.04em;padding:3px 11px;border-radius:999px;margin-bottom:10px}
+  .badge.pre{background:#eaf0f7;color:var(--navy);border:1px solid #d4e0ee}
+  .badge.day{background:var(--teal-soft);color:var(--teal);border:1px solid #c8e3da}
+  h2.title{margin:0 0 6px;font-size:22px;color:var(--navy);font-weight:800;letter-spacing:.01em;line-height:1.4}
+  p.sub{margin:0 0 18px;color:var(--muted);font-size:14px}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* divider band */
+  .divider{background:var(--navy);color:#fff;text-align:center;padding:14px 0}
+  .divider span{font-size:13px;font-weight:800;letter-spacing:.14em}
+
+  /* psych safety */
+  .lead-msg{font-size:17px;font-weight:800;color:var(--navy);line-height:1.6;margin:0 0 14px}
+  .quote{border-left:4px solid var(--amber);background:var(--amber-soft);border-radius:0 10px 10px 0;padding:12px 16px;margin:0 0 20px;color:#6b4a1d;font-size:14px}
+  .quote small{display:block;margin-top:6px;color:var(--amber);font-weight:700;font-size:12px}
+  .check{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 10px;box-shadow:var(--shadow);margin:0 0 22px}
+  .check h3{margin:0 0 10px;font-size:15px;color:var(--navy)}
+  .check ul{list-style:none;margin:0;padding:0}
+  .check li{position:relative;padding:6px 0 6px 26px;font-size:13.8px;border-bottom:1px solid #f0f2f6}
+  .check li:last-child{border-bottom:0}
+  .check li:before{content:"✓";position:absolute;left:2px;top:6px;color:var(--amber);font-weight:900}
+  .matrix-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px 12px;box-shadow:var(--shadow);margin:0 0 6px}
+  .matrix-box svg{display:block;width:100%;height:auto;max-width:560px;margin:0 auto}
+  .matrix-box .cap{margin:8px 2px 0;font-size:12px;color:var(--muted);text-align:center}
+  .through{margin-top:22px;background:var(--navy);color:#fff;border-radius:16px;padding:20px 18px;box-shadow:var(--shadow)}
+  .through h3{margin:0 0 8px;font-size:17px;font-weight:800;color:#fff}
+  .through p{margin:0 0 10px;font-size:14px;color:#dbe4f2;line-height:1.7}
+  .through p:last-child{margin-bottom:0}
+  .through .hl{color:#8fd6c4;font-weight:800}
+
+  /* session cards */
+  .cards{display:grid;gap:12px}
+  .scard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+  .scard .no{font-size:12px;font-weight:800;color:var(--teal);letter-spacing:.04em}
+  .scard h3{margin:2px 0 6px;font-size:16px;color:var(--navy);font-weight:800}
+  .scard p{margin:0;font-size:13.7px;color:var(--ink)}
+  .scard .key{display:inline-block;margin-top:10px;font-size:12px;color:var(--teal);background:var(--teal-soft);border-radius:8px;padding:3px 9px;font-weight:700}
+
+  /* homework */
+  .hw{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+  .hw ul{margin:0;padding-left:1.1em}
+  .hw li{font-size:13.7px;margin:5px 0;color:var(--ink)}
+  .hw .small{font-size:12.5px;color:var(--muted);margin:10px 0 0}
+
+  /* timeline */
+  .tl{position:relative;margin:0;padding:0;list-style:none}
+  .tl li{position:relative;padding:0 0 16px 78px;min-height:34px}
+  .tl li:before{content:"";position:absolute;left:60px;top:6px;width:2px;height:100%;background:var(--line)}
+  .tl li:last-child:before{display:none}
+  .tl .t{position:absolute;left:0;top:2px;width:52px;text-align:right;font-size:12px;font-weight:700;color:var(--teal);font-variant-numeric:tabular-nums}
+  .tl .dot{position:absolute;left:55px;top:4px;width:12px;height:12px;border-radius:50%;background:#fff;border:2.5px solid var(--teal)}
+  .tl h3{margin:0;font-size:15.5px;color:var(--navy);font-weight:700}
+  .tl p{margin:3px 0 0;font-size:13.5px;color:var(--muted)}
+
+  /* DESC */
+  .desc{display:grid;gap:10px}
+  .drow{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+  .drow .L{font-size:15px;font-weight:900;color:var(--teal);line-height:1.15;word-break:keep-all}
+  .drow .L small{display:block;font-size:11px;color:var(--muted);font-weight:700;margin-top:3px}
+  .drow h4{margin:0 0 3px;font-size:14px;color:var(--navy)}
+  .drow p{margin:0;font-size:13px;color:var(--muted)}
+  .drow em{color:var(--ink);font-style:normal}
+
+  /* footer */
+  footer{background:#fff;border-top:1px solid var(--line);padding:26px 0 38px;margin-top:6px}
+  footer p{margin:0;font-size:12.5px;color:var(--muted);text-align:center}
+  footer .org{color:var(--navy);font-weight:700;font-size:13.5px;margin-bottom:4px}
+
+  @media (max-width:430px){
+    .hero h1{font-size:22px}
+    .drow{grid-template-columns:86px 1fr}
+  }
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ===== v2 additions: search / accordion / glossary / nav / back-to-top ===== */
+  section{scroll-margin-top:108px}
+  nav.tabs a.active{background:var(--navy);border-color:var(--navy);color:#fff}
+  .stog{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--teal);padding:9px 13px;border-radius:9px;border:1.5px solid #c8e3da;background:var(--teal-soft);cursor:pointer;font-family:inherit;white-space:nowrap;line-height:1.2}
+  .stog[aria-expanded="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+  .searchbar{border-top:1px solid var(--line);background:#fff}
+  .searchbar .wrap{padding-top:10px;padding-bottom:10px}
+  .srow{display:flex;gap:8px}
+  #q{flex:1;min-width:0;font-size:16px;padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;font-family:inherit;color:var(--ink);background:var(--paper)}
+  #q:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:var(--teal)}
+  .qclear{flex:0 0 auto;font-size:13px;font-weight:700;color:var(--navy);background:#fff;border:1.5px solid var(--line);border-radius:9px;padding:0 12px;cursor:pointer;font-family:inherit}
+  .smeta{margin:6px 2px 0;font-size:12px;color:var(--muted);min-height:1em}
+  .s-hide{display:none!important}
+  body.searching .hero,body.searching .divider{display:none}
+
+  details.acc{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  details.acc>summary{list-style:none;cursor:pointer;padding:14px 42px 14px 16px;position:relative;display:flex;flex-wrap:wrap;gap:5px 10px;align-items:center}
+  details.acc>summary::-webkit-details-marker{display:none}
+  details.acc>summary:after{content:"＋";position:absolute;right:14px;top:50%;transform:translateY(-50%);font-weight:900;color:var(--teal);font-size:17px}
+  details.acc[open]>summary:after{content:"－"}
+  details.acc>summary .no{flex:0 0 100%;font-size:12px;font-weight:800;color:var(--teal);letter-spacing:.04em}
+  details.acc>summary .acc-t{font-size:15.5px;font-weight:800;color:var(--navy);line-height:1.45}
+  details.acc>summary .key{font-size:11.5px;color:var(--teal);background:var(--teal-soft);border-radius:8px;padding:2px 8px;font-weight:700}
+  .acc>summary .keys{flex:0 0 100%;display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+  .acc-body{padding:2px 16px 14px;border-top:1px dashed var(--line)}
+  .acc-body p{font-size:13.7px;margin:10px 0 0;color:var(--ink)}
+  .acc-body .mini-h{font-size:12px;font-weight:800;color:var(--teal);letter-spacing:.06em;margin:14px 0 0}
+  ul.dots{margin:6px 0 0;padding-left:1.2em}
+  ul.dots li{font-size:13.5px;margin:5px 0;color:var(--ink)}
+  .accwrap{display:grid;gap:10px}
+  .mini-cap{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.06em;margin:22px 0 8px}
+
+  .zone{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0 0;background:var(--paper)}
+  .zone b{font-size:13.8px;color:var(--navy)}
+  .zone .ax{display:inline-block;margin-left:8px;font-size:11.5px;font-weight:700;color:var(--teal)}
+  .zone p{font-size:13px;color:var(--muted);margin:3px 0 0!important}
+
+  .vs{display:grid;grid-template-columns:1fr 18px 1fr;gap:6px;align-items:center;border-bottom:1px solid #f0f2f6;padding:8px 0;font-size:13px}
+  .vs:last-child{border-bottom:0}
+  .vs .bad{color:var(--muted)}
+  .vs .arr{color:var(--teal);font-weight:900;text-align:center}
+  .vs .good{color:var(--navy);font-weight:700}
+
+  .scene{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0 0;background:var(--paper)}
+  .scene b{display:block;font-size:13.5px;color:var(--navy);margin-bottom:2px}
+  .scene .ng,.scene .ok{display:block;font-size:13px;padding-left:1.5em;text-indent:-1.5em;margin:4px 0 0;line-height:1.6}
+  .scene .ng{color:#9b4a2f}
+  .scene .ok{color:var(--teal);font-weight:700}
+
+  .gl{display:grid;gap:8px;margin:0}
+  .gl>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px;box-shadow:var(--shadow)}
+  .gl dt{font-weight:800;color:var(--navy);font-size:13.8px}
+  .gl dd{margin:2px 0 0;font-size:13px;color:var(--muted);line-height:1.65}
+  .badge.ref{background:var(--amber-soft);color:var(--amber);border:1px solid #ecd9b8}
+
+  #toTop{position:fixed;right:14px;bottom:16px;z-index:30;width:44px;height:44px;border-radius:50%;border:none;background:var(--navy);color:#fff;font-size:18px;font-weight:900;box-shadow:var(--shadow);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s ease}
+  #toTop.show{opacity:1;pointer-events:auto}
+  .back-link{text-align:center;margin:0 0 16px}
+  .back-link a{color:var(--navy);font-weight:700;font-size:13px;text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:8px 18px;display:inline-block;background:#fff}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    #toTop{transition:none}
+  }
+</style>
+</head>
+<body>
+<header class="bar" id="top">
+  <div class="wrap">
+    <div class="brand">アンガーマネジメント研修ウェブサイト（2027年1月）</div>
+    <nav class="tabs" id="tabs">
+      <a href="#homework" class="active">事前のお願い</a>
+      <a href="#review">これまでの復習</a>
+      <a href="#bias">脳のクセ</a>
+      <a href="#kuse">考え方のクセ</a>
+      <a href="#flow">当日の流れ</a>
+      <a href="#work">ワーク</a>
+      <button type="button" class="stog" id="stog" aria-expanded="false" aria-controls="searchbar"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>検索</button>
+    </nav>
+  </div>
+  <div class="searchbar" id="searchbar" hidden>
+    <div class="wrap">
+      <div class="srow">
+        <input type="search" id="q" placeholder="キーワードで探す（例：べき思考、言い換え、箱）" autocomplete="off" aria-label="ページ内検索">
+        <button type="button" id="qclear" class="qclear">クリア</button>
+      </div>
+      <p class="smeta" id="smeta" aria-live="polite"></p>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Follow-up &middot; 2027.1</p>
+    <h1>フォローアップ研修（1月）<br>その「当たり前」、みんな同じ？</h1>
+    <p class="lead">半年ぶりのフォローアップです。案外、忘れていることもあると思います。考え方のクセは1回で気づけるものでもないので、もう一度、自分のクセに気づく回にしました。</p>
+    <span class="pill">30分・委員会時間内 / リーダー職向け</span>
+  </div>
+</div>
+
+<!-- ============ 事前のお願い ============ -->
+<section id="homework" class="wrap reveal" style="padding-bottom:10px">
+  <span class="badge pre">事前のお願い</span>
+  <h2 class="title">当日までに、ひとつ<br>思い出してきてください</h2>
+  <div class="hw sx">
+    <ul>
+      <li>最近、だれかに「イラッ」「もやっ」とした場面を1つ。職場でも家庭でもOKです。</li>
+      <li><strong>だれに対しての話か</strong>がわかる事例が良いです。</li>
+      <li>メモは、<strong>だれに</strong>／<strong>出来事</strong>／<strong>頭に浮かんだこと</strong>／<strong>そのときの気持ち</strong>／<strong>どうしたか・結局どうなったか</strong>、の5つです。</li>
+      <li>「怒って当然」と思う場面でもOKです。</li>
+    </ul>
+    <p class="small">人前で読み上げることはありません。グループで話すのは、話せる人だけ、話してもよい範囲だけで大丈夫です。</p>
+  </div>
+</section>
+
+<!-- ============ これまでの復習 ============ -->
+<section id="review" class="wrap reveal">
+  <span class="badge pre">事前に読む（任意）</span>
+  <h2 class="title">「6秒カウントダウン」、<br>覚えていますか？</h2>
+  <p class="sub">全5回と、7月のフォローアップをざっと振り返ります。➕をタップすると詳細が開きます。</p>
+  <div class="accwrap">
+
+    <details class="acc sx" data-kw="二次感情 3つのF fight flight freeze">
+      <summary><span class="no">第1回</span><span class="acc-t">怒りの理解と気づき</span><span class="keys"><span class="key">二次感情</span><span class="key">3つのF</span></span></summary>
+      <div class="acc-body">
+        <p>怒りは「悪いもの」ではなく、不安や疲れから生まれる二次感情。まず気づくことから。職場の雰囲気は、上司のご機嫌が鍵。</p>
+        <p class="mini-h">もう一歩</p>
+        <ul class="dots">
+          <li>到達目標：①怒りの役割・特徴を知る　②怒りに気づく方法を知る　③怒りの問題点を知る。</li>
+          <li>怒りは必要な感情。危機を知らせる機能、気持ちを伝えるコミュニケーション機能、エネルギーとしての側面を持つ。</li>
+          <li>怒りの根っこには「3つのF」——戦う（Fight）・逃げる（Flight）・凍りつく（Freeze）。</li>
+          <li>研修全体の目的は「良い人間関係を築き、組織の心理的安全性を高める」こと。自己理解→他者理解→相互理解の順で身についていく。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc sx" data-kw="6秒カウントダウン 10秒呼吸法 タイムアウト セルフトーク ストレス">
+      <summary><span class="no">第2回</span><span class="acc-t">ストレスマネジメント</span><span class="keys"><span class="key">6秒カウントダウン</span><span class="key">10秒呼吸法</span><span class="key">タイムアウト</span><span class="key">セルフトーク</span></span></summary>
+      <div class="acc-body">
+        <p>カッとなった瞬間に効く即効スキル。理性が働くまでの数秒を稼ぐ「6秒カウントダウン」、10秒呼吸法、その場を離れるタイムアウト、自分への声かけ（セルフトーク）。</p>
+        <p class="mini-h">もう一歩</p>
+        <ul class="dots">
+          <li>6秒カウントダウン：怒りのピークをやり過ごし、理性が働くまでの数秒を稼ぐ。</li>
+          <li>10秒呼吸法：呼吸で心身を落ち着かせる。</li>
+          <li>タイムアウト：その場をいったん離れて、怒りを冷ます。</li>
+          <li>セルフトーク：自分への声かけで気持ちを整える。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc sx" data-kw="べき思考 リフレーミング 認知変容 考え方のくせ">
+      <summary><span class="no">第3回</span><span class="acc-t">認知変容</span><span class="keys"><span class="key">べき思考</span><span class="key">リフレーミング</span></span></summary>
+      <div class="acc-body">
+        <p>怒りは「考え方のくせ」から生まれる。「〜すべき」という“べき思考”に気づき、ものの見方は一つではないと知る。視点を変えるだけで怒りは下がります。</p>
+        <p class="mini-h">もう一歩</p>
+        <ul class="dots">
+          <li>「〜すべき」という“べき思考”は怒りの引き金になりやすい。まず自分の考え方のくせに気づくこと。</li>
+          <li>ものの見方は一つではない。視点を変える（リフレーミング）だけで、怒りは下がる。</li>
+          <li>あらゆる性格は表裏一体。欠点は見方を変えれば良いところ（神経質→細かいところに気が付く）。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc sx" data-kw="傾聴 聞く 聴く 価値観 全身">
+      <summary><span class="no">第4回</span><span class="acc-t">傾聴</span><span class="keys"><span class="key">聴く</span><span class="key">価値観を横に置く</span></span></summary>
+      <div class="acc-body">
+        <p>「聞く」と「聴く」は違う。自分の価値観を横に置き、最後まで聴く。つい頭によぎる「あなたは違う」「こうした方がいいのに」という思考に注意。</p>
+        <p class="mini-h">もう一歩</p>
+        <ul class="dots">
+          <li>「聴く」は感情や意図まで含めて能動的に捉えること。</li>
+          <li>傾聴は目・耳・心を使った“全身の聴き方”。相手の目で見て、相手の耳で聴いて、相手の心で感じる。</li>
+          <li>心構え：①自分の価値観・考えを横に置く　②批判的・説教的態度をとらない　③理解したことを相手に伝える　④自分の意見を言う時は許可をとってから。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc sx" data-kw="アサーティブ DESC クッション言葉 Iメッセージ 攻撃型 受身型 作為型 自他尊重">
+      <summary><span class="no">第5回</span><span class="acc-t">アサーティブコミュニケーション</span><span class="keys"><span class="key">アサーティブ</span><span class="key">DESC法</span><span class="key">クッション言葉</span><span class="key">Iメッセージ</span></span></summary>
+      <div class="acc-body">
+        <p>相手も自分も大切にして、互いに最善を目指す伝え方。その型がDESC法。クッション言葉を添えて。</p>
+        <p class="mini-h">もう一歩</p>
+        <ul class="dots">
+          <li>アサーティブとは「相手の気持ちや考えを尊重した上で、自分の気持ちや考えを正直に、率直に表現する」自他尊重のコミュニケーション。</li>
+          <li>4つのコミュニケーションタイプ：攻撃型（プンプン爆発型）／受身型（ビクビク不安型）／作為型（ネチネチ陰険型）／自他尊重型（アサーティブ）。</li>
+          <li>4つの心の姿勢：誠実・率直・対等・自己責任。</li>
+          <li>「私は」を主語にするIメッセージ、お願い・お断り・違う意見の前に添えるクッション言葉が助けになる。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc sx" data-kw="フォローアップ 7月 アンガーログ ゆるめる 聴ききる ほぐす DESC 心理的安全性">
+      <summary><span class="no">7月</span><span class="acc-t">フォローアップ研修</span><span class="keys"><span class="key">アンガーログ</span><span class="key">ゆるめる</span><span class="key">心理的安全性</span></span></summary>
+      <div class="acc-body">
+        <p>最近の「もやっ・イラッ」を1つ、グループで「聴ききる → ほぐす（考え方のクセに気づく）→ ゆるめる（別の見方）」の順に扱いました。</p>
+        <p class="mini-h">もう一歩</p>
+        <ul class="dots">
+          <li>心理的安全性は「ぬるい職場」ではない。<strong>人には敬意を、仕事には基準を。</strong>安全性と仕事の基準は、両方高められる、という話でした。</li>
+          <li>怒りを抜いて、率直に言う型がDESC法（描写・表現・提案・選択）。</li>
+          <li>周りが助言するより、問いで本人が気づくのを支える、という話でした。</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ 脳のクセ（認知バイアス） ============ -->
+<section id="bias" class="wrap reveal">
+  <span class="badge pre">事前に読む（任意）</span>
+  <h2 class="title">わかっていても、<br>できないのが人間</h2>
+  <p class="sub">人の脳には、誰にでもあるクセ（認知バイアス）があります。健康にも、怒りにも関係していると思います。怒りのほうは、当日、6つのクセで扱います。</p>
+
+  <div class="accwrap">
+    <details class="acc sx" data-kw="脳のクセ 認知バイアス 健康 現在バイアス 現状維持バイアス 認知的不協和 正常性バイアス たばこ 健診" open>
+      <summary><span class="acc-t">健康とのつながり</span><span class="keys"><span class="key">現在バイアス</span><span class="key">現状維持バイアス</span><span class="key">認知的不協和</span><span class="key">正常性バイアス</span></span></summary>
+      <div class="acc-body">
+        <ul class="dots">
+          <li><strong>目の前のことを大事に感じる（現在バイアス）</strong>：今夜の一杯は、すぐ・確か。10年後の健康は、遠い・不確か。「明日から、本気出す」。たばこを吸う人ほど、この傾向が強いという研究もあります。</li>
+          <li><strong>変えること自体が、おっくう（現状維持バイアス）</strong>：今のままでいたい。「めんどくさい」。スマホやキャッシュレス払いも、最初は抵抗があった方が多いのではないでしょうか。変わるのは、なかなか大変なのだと思います。</li>
+          <li><strong>都合の悪いことは、見なかったことにする（認知的不協和・正常性バイアス）</strong>：「たばこは体に悪い」と知っていながら吸っているように、知っていることと、やっていることが食い違うと、心は落ち着きません（認知的不協和）。その落ち着かなさを減らそうとして、「祖父は吸っていても長生きした」と自分を納得させる話を探したり、「自分は大丈夫」と思いたくなったりします（正常性バイアス）。健診の結果を、封筒のまま引き出しにしまってしまうのも、同じクセかもしれません。</li>
+        </ul>
+        <p style="margin:8px 0 0;font-size:13.5px;color:var(--ink)">分かっていないのではなく、分かっていても、できない。弱さではなく、人間のつくりだと思います。</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ============ 考え方のクセ ============ -->
+<section id="kuse" class="wrap reveal">
+  <span class="badge pre">事前に読む（任意）</span>
+  <h2 class="title">考え方のクセは、<br>大切にしていることの裏返し</h2>
+  <p class="sub">イラッとした場面の裏には、考え方のクセが隠れていることがあります。6つのうち、自分に多いのはどれでしょう。</p>
+
+  <div class="accwrap">
+    <details class="acc sx" data-kw="考え方のくせ 6つ 白黒思考 完璧主義 すべき思考 べき 過度な一般化 他罰思考 執着 固執 イラッと思考" open>
+      <summary><span class="acc-t">考え方のクセ（6つ）</span></summary>
+      <div class="acc-body">
+        <ul class="dots">
+          <li><strong>白黒思考</strong>：良い／悪い、0か100かで極端に分けて考える。</li>
+          <li><strong>完璧主義</strong>：自分にも相手にも要求が高く、思い通りでないと責める。</li>
+          <li><strong>すべき思考</strong>：自分の考えを「絶対」と決めつけ、自分にも相手にも押し付ける。</li>
+          <li><strong>過度な一般化</strong>：わずかな事実から「いつもこうだ」と決めつける。</li>
+          <li><strong>他罰思考</strong>：都合が悪いと相手のせいにし、相手を責めて自分の責任を回避する。</li>
+          <li><strong>執着・固執</strong>：ネガティブな考えが頭から離れず、考え続ける。</li>
+        </ul>
+        <p class="small" style="font-size:12px;color:var(--muted);margin:8px 0 0">「イラッと思考（6つの考え方のくせ）」（アンガーマネジメントジャパン）をもとに作成</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="sx" style="background:var(--teal-soft);border:1px solid #cfe6df;border-radius:12px;padding:14px 15px;margin:16px 0 0">
+    <h3 style="margin:0 0 8px;font-size:15px;color:var(--teal)">あらゆる性格は表裏一体（第3回の言い換え）</h3>
+    <ul class="dots" style="margin:0">
+      <li>神経質 → <strong>注意深く、ミスを見逃さない</strong></li>
+      <li>悲観的 → <strong>現実的で、問題点を見つけて改善する</strong></li>
+      <li>優柔不断 → <strong>慎重で、複数の選択肢を総合的に判断する</strong></li>
+      <li>頑固 → <strong>主張力があり、自分の信念を貫く</strong></li>
+      <li>軽率・大雑把 → <strong>瞬発力があり、すぐ行動に移せる</strong></li>
+    </ul>
+    <p style="margin:10px 0 0;font-size:13.8px;color:var(--ink);line-height:1.75">考え方のクセも同じで、その人が大切にしていることの表れだと思います。困るのはクセそのものより、<strong>強く出すぎたとき</strong>。程度の問題で、ようは<strong>バランス</strong>です。当日は、アンガーログからあぶり出したクセを、同じように言い換えてみます。</p>
+  </div>
+</section>
+
+<div class="divider"><span>──── ここから「当日やること」 ────</span></div>
+
+<!-- ============ 当日の流れ ============ -->
+<section id="flow" class="wrap reveal">
+  <span class="badge day">当日</span>
+  <h2 class="title">30分、こう進みます</h2>
+  <div class="sx" style="background:var(--teal-soft);border:1px solid #cfe6df;border-radius:12px;padding:14px 15px;margin:0 0 16px">
+    <h3 style="margin:0 0 8px;font-size:15px;color:var(--teal)">今日のゴールは2つ</h3>
+    <p style="margin:0;font-size:13.8px;color:var(--ink);line-height:1.75"><strong>第1ゴール：まず気づく。</strong>アンガーログから自分のクセをあぶり出し、言い換えて「自分は何を大切にしていたか」に気づく。</p>
+    <p style="margin:8px 0 0;font-size:13.8px;color:var(--ink);line-height:1.75"><strong>第2ゴール：箱から出る。</strong>「自分にできることは？」と前を向く。相手が大切にしていたこと、見えていない事情にも目を向ける。</p>
+  </div>
+
+  <div class="sx" style="border:1px solid var(--line);border-radius:12px;padding:14px 15px;margin:0 0 16px;background:#fff">
+    <h3 style="margin:0 0 6px;font-size:15px;color:var(--navy)">📘 第2ゴールの「箱」とは</h3>
+    <p style="margin:0;font-size:13.8px;color:var(--ink);line-height:1.75">「あの人はだめだな」と思っているときほど、自分の箱に閉じこもっているのかもしれません。箱の中では、自分を正当化するうちに見え方がゆがみ、<strong>「かわいそうな私」「悪いあの人」</strong>という見方に陥りがちです。『新版 自分の小さな箱から脱出する方法』は、この状態を「箱」と呼びます。</p>
+    <p style="margin:8px 0 0;font-size:13.8px;color:var(--ink);line-height:1.75">箱から出るのは、相手を変えるためというより、まず気づいて、<strong>「自分にできることは？」と前を向く</strong>ことだと思います。</p>
+    <p style="margin:8px 0 0;font-size:12.5px;color:var(--muted)">アービンジャー・インスティチュート（著）／冨永 星（訳）、大和書房、2026年　<a href="https://www.amazon.co.jp/dp/447979851X" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700">Amazonで見る</a></p>
+  </div>
+
+  <ul class="tl">
+    <li class="sx"><span class="t">0–3分</span><span class="dot"></span><h3>これまでの振り返り</h3><p>全5回と7月の内容を、さっと思い出す。</p></li>
+    <li class="sx"><span class="t">3–8分</span><span class="dot"></span><h3>脳のクセと、怒りの罠</h3><p>人の脳には、誰にでもあるクセがあります。健康とも、怒りとも関係しています。そして、イライラしているときほどはまる罠（「箱」）の話。</p></li>
+    <li class="sx"><span class="t">8–18分</span><span class="dot"></span><h3>第1ゴール：まず気づく</h3><p>アンガーログを書く → クセをあぶり出す → 強みに言い換えて落ち着く。</p></li>
+    <li class="sx"><span class="t">18–24分</span><span class="dot"></span><h3>第2ゴール：箱から出る</h3><p>自分にできることは？ 相手は何を大切にしていた？ ひとりで書いて、グループで話せる範囲だけ共有。</p></li>
+    <li class="sx"><span class="t">24–30分</span><span class="dot"></span><h3>明日の一言</h3><p>明日、試すこと・言う一言を1つ書く。</p></li>
+  </ul>
+</section>
+
+<!-- ============ ワーク ============ -->
+<section id="work" class="wrap reveal">
+  <span class="badge day">当日</span>
+  <h2 class="title">「最近のイラッと」の見直し方</h2>
+  <p class="sub">時間割の「8–24分」がこのパートです。まずひとりで書き、そのあとグループで話せる範囲だけ共有します。</p>
+
+  <p class="sx" style="margin:0 0 10px;font-size:14px;font-weight:800;color:var(--teal)">第1ゴール：まず気づく（①〜③）</p>
+
+  <div class="check sx" style="margin-bottom:13px">
+    <h3>① アンガーログを書く</h3>
+    <p style="margin:0;font-size:13.8px;color:var(--ink)"><strong>だれに対して</strong>／出来事／頭に浮かんだこと／気持ち／どうしたか・結局どうなったか。怒りの点数（　／100）もつける。</p>
+  </div>
+
+  <div class="check sx" style="margin-bottom:13px">
+    <h3>② クセをあぶり出す</h3>
+    <p style="margin:0;font-size:13.8px;color:var(--ink)">頭に浮かんだことは、6つのクセのどれに近い？</p>
+    <p style="margin:9px 0 0;padding:8px 11px;background:var(--teal-soft);border-radius:9px;font-size:13px;color:var(--teal);font-weight:700">▶ 問い：「いつも」「絶対」「普通は〜」「〜すべき」が浮かんでいない？</p>
+  </div>
+
+  <div class="check sx" style="margin-bottom:13px">
+    <h3>③ 言い換えて、落ち着く</h3>
+    <p style="margin:0;font-size:13.8px;color:var(--ink)">そのクセを、強みに言い換えると？ 例：すべき思考 → 責任感が強い／完璧主義 → 仕事がていねい。クセの裏には、自分が大切にしていることがあるのかもしれません。</p>
+    <p style="margin:9px 0 0;padding:8px 11px;background:var(--teal-soft);border-radius:9px;font-size:13px;color:var(--teal);font-weight:700">▶ 問い：今回は、それが少し強く出すぎていなかった？ ／ 最初と比べて、いま何点？</p>
+  </div>
+
+  <p class="sx" style="margin:4px 0 10px;font-size:14px;font-weight:800;color:var(--teal)">第2ゴール：箱から出る（④〜⑤）</p>
+
+
+  <div class="check sx" style="margin-bottom:13px">
+    <h3>④ 箱から出て、前を向く</h3>
+    <p style="margin:0;font-size:13.8px;color:var(--ink)">「かわいそうな私」「悪いあの人」になっていないか、振り返ります。そのうえで、自分にできることは何か。相手にも、見えていない事情や、別に大切にしていることがあったかもしれません（第3回の「Assume Positive Intent」：報告が遅い → 調べてから報告するつもりだった）。</p>
+    <p style="margin:9px 0 0;padding:8px 11px;background:var(--teal-soft);border-radius:9px;font-size:13px;color:var(--teal);font-weight:700">▶ 問い：自分にできることは？ ／ 自分が逆の立場だったことは？</p>
+  </div>
+
+  <div class="check sx" style="margin-bottom:13px">
+    <h3>⑤ 明日の一言</h3>
+    <p style="margin:0;font-size:13.8px;color:var(--ink)">決めつける前に<strong>確かめる一言</strong>、必要なことを<strong>具体的に伝える一言</strong>を1つ。</p>
+  </div>
+
+  <div id="points" class="sx" style="scroll-margin-top:108px;background:var(--amber-soft);border:1px solid #ecd9b8;border-radius:14px;padding:16px 17px;margin:0 0 18px">
+    <h3 style="margin:0 0 11px;font-size:15px;color:var(--amber)">⭐️ 「怒って当然」のときこそ</h3>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <p style="margin:0;font-size:13.8px;color:var(--ink);line-height:1.7">怒るのは当然だと思います。<strong style="color:var(--navy)">ただ、きつく言うと、関係が悪くなることが多いです。</strong>伝え方で、結果が変わることがあります。</p>
+      <p style="margin:0;font-size:13.8px;color:var(--ink);line-height:1.7">正しいことでも、きつく言われると、人は反発したくなるものです。<strong style="color:var(--navy)">正論パンチほど、きついものはないかもしれません。</strong></p>
+      <p style="margin:0;font-size:13.8px;color:var(--ink);line-height:1.7">ぶつかられたらイラッとする（第3回の例）。でも、自分が急いでぶつかったこともあるかもしれません。<strong style="color:var(--navy)">お互いさまと考えられると、少しゆるむかもしれません。</strong></p>
+      <p style="margin:0;font-size:13.8px;color:var(--ink);line-height:1.7">相手の事情を考えることと、<strong style="color:var(--navy)">必要なことを伝えること</strong>は、両立できると思います。</p>
+    </div>
+  </div>
+
+  <p class="sx" style="font-size:13px;color:var(--muted);margin:0 0 18px">グループの約束：聴く側は助言しないで、まず最後まで聴く。話すのは、話してもよい範囲だけ。</p>
+
+</section>
+
+<button id="toTop" type="button" aria-label="ページの先頭へ戻る">↑</button>
+
+<footer>
+  <div class="wrap">
+    <p class="org">健康推進室</p>
+    <p>アンガーマネジメント研修（リーダー職向け）／前田 航規</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var ro = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---- 表示アニメ（既存） ---- */
+    var reveals = document.querySelectorAll('.reveal');
+    if(ro || !('IntersectionObserver' in window)){
+      reveals.forEach(function(e){e.classList.add('in')});
+    }else{
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+      },{threshold:0.12});
+      reveals.forEach(function(e){io.observe(e)});
+    }
+
+    /* ---- ナビ：現在地ハイライト ---- */
+    var tabs = [].slice.call(document.querySelectorAll('nav.tabs a'));
+    var byId = {};
+    tabs.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+    function setActive(id){
+      if(!byId[id]) return;
+      tabs.forEach(function(a){ a.classList.toggle('active', a === byId[id]); });
+    }
+    if('IntersectionObserver' in window){
+      var spy = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ setActive(en.target.id); } });
+      },{rootMargin:'-35% 0px -55% 0px'});
+      ['safety','review','desc','flow','work','points','qa'].forEach(function(id){
+        var s = document.getElementById(id); if(s) spy.observe(s);
+      });
+    }
+    tabs.forEach(function(a){
+      a.addEventListener('click', function(){ setActive(this.getAttribute('href').slice(1)); });
+    });
+
+    /* ---- ページ内検索 ---- */
+    var stog = document.getElementById('stog');
+    var bar  = document.getElementById('searchbar');
+    var q    = document.getElementById('q');
+    var qc   = document.getElementById('qclear');
+    var meta = document.getElementById('smeta');
+    var items = [].slice.call(document.querySelectorAll('.sx'));
+    var secs  = [].slice.call(document.querySelectorAll('section'));
+
+    function norm(s){
+      s = (s || '').toLowerCase();
+      try{ s = s.normalize('NFKC'); }catch(e){}
+      /* ひらがな→カタカナに寄せて表記ゆれを吸収 */
+      return s.replace(/[\u3041-\u3096]/g, function(ch){
+        return String.fromCharCode(ch.charCodeAt(0) + 0x60);
+      });
+    }
+    items.forEach(function(it){
+      it._t = norm((it.textContent || '') + ' ' + (it.getAttribute('data-kw') || ''));
+    });
+
+    function run(){
+      var v = norm(q.value.trim());
+      if(!v){
+        document.body.classList.remove('searching');
+        items.forEach(function(it){
+          it.classList.remove('s-hide');
+          if(it.tagName === 'DETAILS' && it._auto){ it.open = false; it._auto = false; }
+        });
+        secs.forEach(function(s){ s.classList.remove('s-hide'); });
+        meta.textContent = '';
+        return;
+      }
+      document.body.classList.add('searching');
+      var n = 0;
+      items.forEach(function(it){
+        var hit = it._t.indexOf(v) > -1;
+        it.classList.toggle('s-hide', !hit);
+        if(hit){
+          n++;
+          if(it.tagName === 'DETAILS' && !it.open){ it.open = true; it._auto = true; }
+        }else if(it.tagName === 'DETAILS' && it._auto){
+          it.open = false; it._auto = false;
+        }
+      });
+      secs.forEach(function(s){
+        var any = s.querySelector('.sx:not(.s-hide)');
+        s.classList.toggle('s-hide', !any);
+        if(any) s.classList.add('in');
+      });
+      meta.textContent = n ? n + '件ヒット' : '一致する項目がありません';
+    }
+    if(stog && bar && q){
+      stog.addEventListener('click', function(){
+        var open = bar.hasAttribute('hidden');
+        if(open){ bar.removeAttribute('hidden'); stog.setAttribute('aria-expanded','true'); q.focus(); }
+        else{ bar.setAttribute('hidden',''); stog.setAttribute('aria-expanded','false'); q.value=''; run(); }
+      });
+      q.addEventListener('input', run);
+      q.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ q.value=''; run(); } });
+      qc.addEventListener('click', function(){ q.value=''; run(); q.focus(); });
+    }
+
+    /* ---- 上に戻る ---- */
+    var tt = document.getElementById('toTop');
+    function onScroll(){ tt.classList.toggle('show', window.scrollY > 600); }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+    tt.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior: ro ? 'auto' : 'smooth'});
+    });
+  })();
+</script>
+</body>
+</html>
